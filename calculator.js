@@ -1,20 +1,19 @@
-function proiz(){
-    const check = /^-+\d+$|\d+$/;
-    let num1 = document.getElementsByName("n1");
-    let num2 = document.getElementsByName("n2");
-    
-    if (check.test(num1[0].value) == false|| check.test(num2[0].value) == false) {
-        document.getElementById('out').innerHTML='Вы сделали что-то не так!';
-    }
-    else{
-        let num3 = document.getElementById('out');
-        num1[0] = Number.parseInt(num1[0]);
-        num2[0] = Number.parseInt(num2[0]);
-        var result = num1[0].value * num2[0].value;
-        num3.innerHTML = Math.abs(result);   
-    }
-}
 
+function proiz() {
+    var num1, num2, result;
+    num1 = document.getElementById('n1').value;
+    num2 = document.getElementById('n2').value;
+    var regex = /^[1-9]\d+$/;
+    if (!regex.test(num1) || !regex.test(num2)) {
+        alert("Пожалуйста, введите корректные числа.");
+        return false;
+    }
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
+    result = num1 * num2;
+    alert("Вы собираетесь умножить 2 числа: "+num1+" и "+num2+".");
+    document.getElementById('out').innerHTML = "Результат: "+result;
+}
     
 
 window.addEventListener('DOMContentLoaded', function (event) {
